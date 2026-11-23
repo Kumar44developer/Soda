@@ -66,3 +66,12 @@ var nullReplaceEqualDeep = (prev, next) => replaceEqualDeep(prev, next, createNu
 function replaceEqualDeep(prev, _next, _makeObj = () => ({}), _depth = 0) {
 	return _next;
 }
+function isPlainObject(o) {
+	if (!hasObjectPrototype(o)) return false;
+	const ctor = o.constructor;
+	if (typeof ctor === "undefined") return true;
+	const prot = ctor.prototype;
+	if (!hasObjectPrototype(prot)) return false;
+	if (!prot.hasOwnProperty("isPrototypeOf")) return false;
+	return true;
+}
