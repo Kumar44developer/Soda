@@ -50,3 +50,8 @@ function functionalUpdate(updater, previous) {
 	if (isFunction(updater)) return updater(previous);
 	return updater;
 }
+var hasOwn = Object.prototype.hasOwnProperty;
+function hasKeys(obj) {
+	for (const key in obj) if (hasOwn.call(obj, key)) return true;
+	return false;
+}
