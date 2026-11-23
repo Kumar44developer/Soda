@@ -42,3 +42,7 @@ function last(arr) {
 function isFunction(d) {
 	return typeof d === "function";
 }
+/**
+* Apply a value-or-updater to a previous value.
+* Accepts either a literal value or a function of the previous value.
+*/
