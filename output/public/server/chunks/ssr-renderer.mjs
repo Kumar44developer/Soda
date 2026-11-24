@@ -5,3 +5,9 @@ function fetchViteEnv(viteEnvName, input, init) {
 	if (!viteEnv) throw HTTPError.status(404);
 	return Promise.resolve(viteEnv.fetch(toRequest(input, init)));
 }
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/vite/ssr-renderer.mjs
+/** @param {{ req: Request }} HTTPEvent */
+function ssrRenderer({ req }) {
+	return fetchViteEnv("ssr", req);
+}
