@@ -9,3 +9,8 @@ var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 * React.use if available (React 19+), undefined otherwise.
 * Use dynamic lookup to avoid Webpack compilation errors with React 18.
 */
+var reactUse = import_react.use;
+typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
+/**
+* React hook to take a `React.ForwardedRef` and returns a `ref` that can be used on a DOM element.
+*
