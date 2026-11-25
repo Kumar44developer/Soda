@@ -78,3 +78,6 @@ function isPlainObject(o) {
 	if (!prot.hasOwnProperty("isPrototypeOf")) return false;
 	return true;
 }
+function hasObjectPrototype(o) {
+	return Object.prototype.toString.call(o) === "[object Object]";
+}
