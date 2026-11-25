@@ -58,3 +58,11 @@ function hasKeys(obj) {
 	for (const key in obj) if (hasOwn.call(obj, key)) return true;
 	return false;
 }
+var createNull = () => Object.create(null);
+var nullReplaceEqualDeep = (prev, next) => replaceEqualDeep(prev, next, createNull);
+/**
+* This function returns `prev` if `_next` is deeply equal.
+* If not, it will replace any deeply equal children of `b` with those of `a`.
+* This can be used for structural sharing between immutable JSON values for example.
+* Do not use this with signals
+*/
