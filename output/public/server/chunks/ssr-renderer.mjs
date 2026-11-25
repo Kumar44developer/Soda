@@ -81,3 +81,7 @@ function isPlainObject(o) {
 function hasObjectPrototype(o) {
 	return Object.prototype.toString.call(o) === "[object Object]";
 }
+/**
+* Perform a deep equality check with options for partial comparison and
+* ignoring `undefined` values. Optimized for router state comparisons.
+*/
