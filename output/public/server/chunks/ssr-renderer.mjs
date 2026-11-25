@@ -93,3 +93,11 @@ function deepEqual(a, b, opts) {
 		for (let i = 0, l = a.length; i < l; i++) if (!deepEqual(a[i], b[i], opts)) return false;
 		return true;
 	}
+	if (isPlainObject(a) && isPlainObject(b)) {
+		const ignoreUndefined = opts?.ignoreUndefined ?? true;
+		if (opts?.partial) {
+			for (const k in b) if (!ignoreUndefined || b[k] !== void 0) {
+				if (!deepEqual(a[k], b[k], opts)) return false;
+			}
+			return true;
+		}
