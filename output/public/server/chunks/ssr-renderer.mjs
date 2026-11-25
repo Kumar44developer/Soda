@@ -66,3 +66,6 @@ var nullReplaceEqualDeep = (prev, next) => replaceEqualDeep(prev, next, createNu
 * This can be used for structural sharing between immutable JSON values for example.
 * Do not use this with signals
 */
+function replaceEqualDeep(prev, _next, _makeObj = () => ({}), _depth = 0) {
+	return _next;
+}
