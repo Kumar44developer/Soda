@@ -17,4 +17,13 @@ var reactUse = import_react.use;
 typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
 /**
 * React hook to take a `React.ForwardedRef` and returns a `ref` that can be used on a DOM element.
-*
+* @param ref - The forwarded ref
+* @returns The inner ref returned by `useRef`
+* @example
+* ```tsx
+* const MyComponent = React.forwardRef((props, ref) => {
+*  const innerRef = useForwardedRef(ref)
+*  return <div ref={innerRef} />
+* })
+* ```
+*/
