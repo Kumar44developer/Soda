@@ -13,3 +13,8 @@ function ssrRenderer({ req }) {
 }
 //#endregion
 export { ssrRenderer as default };
+var reactUse = import_react.use;
+typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
+/**
+* React hook to take a `React.ForwardedRef` and returns a `ref` that can be used on a DOM element.
+*
