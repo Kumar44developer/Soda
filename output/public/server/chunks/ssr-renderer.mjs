@@ -101,3 +101,15 @@ function deepEqual(a, b, opts) {
 			}
 			return true;
 		}
+		let aCount = 0;
+		if (!ignoreUndefined) aCount = Object.keys(a).length;
+		else for (const k in a) if (a[k] !== void 0) aCount++;
+		let bCount = 0;
+		for (const k in b) if (!ignoreUndefined || b[k] !== void 0) {
+			bCount++;
+			if (bCount > aCount || !deepEqual(a[k], b[k], opts)) return false;
+		}
+		return aCount === bCount;
+	}
+	return false;
+}
