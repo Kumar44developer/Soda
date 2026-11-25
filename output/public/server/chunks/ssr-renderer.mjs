@@ -117,3 +117,10 @@ function deepEqual(a, b, opts) {
 * Create a promise with exposed resolve/reject and status fields.
 * Useful for coordinating async router lifecycle operations.
 */
+function createControlledPromise(onResolve) {
+	let resolveLoadPromise;
+	let rejectLoadPromise;
+	const controlledPromise = new Promise((resolve, reject) => {
+		resolveLoadPromise = resolve;
+		rejectLoadPromise = reject;
+	});
