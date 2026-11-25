@@ -113,3 +113,7 @@ function deepEqual(a, b, opts) {
 	}
 	return false;
 }
+/**
+* Create a promise with exposed resolve/reject and status fields.
+* Useful for coordinating async router lifecycle operations.
+*/
