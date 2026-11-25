@@ -27,3 +27,8 @@ typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useE
 * })
 * ```
 */
+function useForwardedRef(ref) {
+	const innerRef = import_react.useRef(null);
+	import_react.useImperativeHandle(ref, () => innerRef.current, []);
+	return innerRef;
+}
