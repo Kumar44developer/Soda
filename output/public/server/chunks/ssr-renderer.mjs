@@ -38,3 +38,9 @@ function useForwardedRef(ref) {
 * Return the last element of an array.
 * Intended for non-empty arrays used within router internals.
 */
+function last(arr) {
+	return arr[arr.length - 1];
+}
+function isFunction(d) {
+	return typeof d === "function";
+}
