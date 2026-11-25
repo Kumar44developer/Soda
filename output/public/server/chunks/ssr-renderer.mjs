@@ -32,3 +32,9 @@ function useForwardedRef(ref) {
 	import_react.useImperativeHandle(ref, () => innerRef.current, []);
 	return innerRef;
 }
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/utils.js
+/**
+* Return the last element of an array.
+* Intended for non-empty arrays used within router internals.
+*/
