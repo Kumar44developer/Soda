@@ -48,3 +48,8 @@ function isFunction(d) {
 * Apply a value-or-updater to a previous value.
 * Accepts either a literal value or a function of the previous value.
 */
+*/
+function functionalUpdate(updater, previous) {
+	if (isFunction(updater)) return updater(previous);
+	return updater;
+}
