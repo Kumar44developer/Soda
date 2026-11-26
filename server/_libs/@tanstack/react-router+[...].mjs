@@ -83,3 +83,10 @@ function createControlledPromise(onResolve) {
 		resolveLoadPromise = resolve;
 		rejectLoadPromise = reject;
 	});
+	controlledPromise.status = "pending";
+	controlledPromise.resolve = (value) => {
+		controlledPromise.status = "resolved";
+		controlledPromise.value = value;
+		resolveLoadPromise(value);
+		onResolve?.(value);
+	};
