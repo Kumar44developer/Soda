@@ -120,3 +120,7 @@ function isPromise(value) {
 * in paths to match how upstream layers (CDNs, edge middleware, browsers)
 * interpret the URL, preventing infinite redirect loops and path mismatches.
 */
+var PATH_UNSAFE_RE = /[\x00-\x1f\x7f"<>`{}]/g;
+function sanitizePathSegment(segment) {
+	return segment.replace(PATH_UNSAFE_RE, (ch) => "%" + ch.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0"));
+}
