@@ -160,3 +160,7 @@ var DEFAULT_PROTOCOL_ALLOWLIST = [
 *
 * For relative URLs (no protocol), returns false (safe).
 *
+* @param url - The URL string to check
+* @param allowlist - Set of protocols to allow
+* @returns true if the URL uses a protocol that is not allowed
+*/
