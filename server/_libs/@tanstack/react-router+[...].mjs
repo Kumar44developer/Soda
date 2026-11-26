@@ -96,3 +96,11 @@ function createControlledPromise(onResolve) {
 	};
 	return controlledPromise;
 }
+/**
+* Heuristically detect dynamic import "module not found" errors
+* across major browsers for lazy route component handling.
+*/
+function isModuleNotFoundError(error) {
+	if (typeof error?.message !== "string") return false;
+	return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
+}
