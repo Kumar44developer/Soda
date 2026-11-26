@@ -107,3 +107,16 @@ function isModuleNotFoundError(error) {
 function isPromise(value) {
 	return Boolean(value && typeof value === "object" && typeof value.then === "function");
 }
+/**
+* Re-encode characters that are unsafe in URL paths.
+* Includes ASCII control characters (0x00-0x1F, 0x7F) and a subset of the
+* WHATWG URL "path percent-encode set" (", <, >, `, {, }).
+*
+* Space (0x20) is intentionally excluded — decodeURI decodes %20 to space
+* and the router stores decoded spaces in location.pathname. The existing
+* encodePathLikeUrl already handles re-encoding spaces for outgoing URLs.
+*
+* These characters are decoded by decodeURI but must remain percent-encoded
+* in paths to match how upstream layers (CDNs, edge middleware, browsers)
+* interpret the URL, preventing infinite redirect loops and path mismatches.
+*/
