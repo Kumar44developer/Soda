@@ -139,3 +139,7 @@ function decodeSegment(segment) {
 	}
 	return sanitizePathSegment(decoded);
 }
+/**
+* Default list of URL protocols to allow in links, redirects, and navigation.
+* Any absolute URL protocol not in this list is treated as dangerous by default.
+*/
