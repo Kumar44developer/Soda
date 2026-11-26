@@ -181,3 +181,10 @@ var HTML_ESCAPE_LOOKUP = {
 	"\u2029": "\\u2029"
 };
 var HTML_ESCAPE_REGEX = /[&><\u2028\u2029]/g;
+/**
+* Escape HTML special characters in a string to prevent XSS attacks
+* when embedding strings in script tags during SSR.
+*
+* This is essential for preventing XSS vulnerabilities when user-controlled
+* content is embedded in inline scripts.
+*/
