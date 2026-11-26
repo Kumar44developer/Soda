@@ -196,3 +196,7 @@ function decodePath(path) {
 		path,
 		handledProtocolRelativeURL: false
 	};
+	if (!/[%\\\x00-\x1f\x7f]/.test(path) && !path.startsWith("//")) return {
+		path,
+		handledProtocolRelativeURL: false
+	};
