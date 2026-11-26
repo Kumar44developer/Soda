@@ -104,3 +104,6 @@ function isModuleNotFoundError(error) {
 	if (typeof error?.message !== "string") return false;
 	return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
 }
+function isPromise(value) {
+	return Boolean(value && typeof value === "object" && typeof value.then === "function");
+}
