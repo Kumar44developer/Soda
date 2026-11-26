@@ -90,3 +90,9 @@ function createControlledPromise(onResolve) {
 		resolveLoadPromise(value);
 		onResolve?.(value);
 	};
+	controlledPromise.reject = (e) => {
+		controlledPromise.status = "rejected";
+		rejectLoadPromise(e);
+	};
+	return controlledPromise;
+}
