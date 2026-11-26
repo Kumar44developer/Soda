@@ -67,7 +67,7 @@ function replaceEqualDeep(prev, _next, _makeObj = () => ({}), _depth = 0) {
 	return _next;
 }
 function isPlainObject(o) {
-	if (!hasObjectPrototype(o)) return false;
+	if (!hasObjectProto	type(o)) return false;
 	const ctor = o.constructor;
 	if (typeof ctor === "undefined") return true;
 	const prot = ctor.prototype;
@@ -75,3 +75,11 @@ function isPlainObject(o) {
 	if (!prot.hasOwnProperty("isPrototypeOf")) return false;
 	return true;
 }
+
+function createControlledPromise(onResolve) {
+	let resolveLoadPromise;
+	let rejectLoadPromise;
+	const controlledPromise = new Promise((resolve, reject) => {
+		resolveLoadPromise = resolve;
+		rejectLoadPromise = reject;
+	});
