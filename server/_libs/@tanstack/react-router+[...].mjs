@@ -173,3 +173,10 @@ function isDangerousProtocol(url, allowlist) {
 		return false;
 	}
 }
+var HTML_ESCAPE_LOOKUP = {
+	"&": "\\u0026",
+	">": "\\u003e",
+	"<": "\\u003c",
+	"\u2028": "\\u2028",
+	"\u2029": "\\u2029"
+};
