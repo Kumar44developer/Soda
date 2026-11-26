@@ -143,3 +143,9 @@ function decodeSegment(segment) {
 * Default list of URL protocols to allow in links, redirects, and navigation.
 * Any absolute URL protocol not in this list is treated as dangerous by default.
 */
+var DEFAULT_PROTOCOL_ALLOWLIST = [
+	"http:",
+	"https:",
+	"mailto:",
+	"tel:"
+];
