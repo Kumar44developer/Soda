@@ -188,3 +188,6 @@ var HTML_ESCAPE_REGEX = /[&><\u2028\u2029]/g;
 * This is essential for preventing XSS vulnerabilities when user-controlled
 * content is embedded in inline scripts.
 */
+function escapeHtml(str) {
+	return str.replace(HTML_ESCAPE_REGEX, (match) => HTML_ESCAPE_LOOKUP[match]);
+}
