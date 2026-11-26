@@ -149,3 +149,14 @@ var DEFAULT_PROTOCOL_ALLOWLIST = [
 	"mailto:",
 	"tel:"
 ];
+/**
+* Check if a URL string uses a protocol that is not in the allowlist.
+* Returns true for blocked protocols like javascript:, blob:, data:, etc.
+*
+* The URL constructor correctly normalizes:
+* - Mixed case (JavaScript: → javascript:)
+* - Whitespace/control characters (java\nscript: → javascript:)
+* - Leading whitespace
+*
+* For relative URLs (no protocol), returns false (safe).
+*
