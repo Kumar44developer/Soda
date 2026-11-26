@@ -164,3 +164,12 @@ var DEFAULT_PROTOCOL_ALLOWLIST = [
 * @param allowlist - Set of protocols to allow
 * @returns true if the URL uses a protocol that is not allowed
 */
+function isDangerousProtocol(url, allowlist) {
+	if (!url) return false;
+	try {
+		const parsed = new URL(url);
+		return !allowlist.has(parsed.protocol);
+	} catch {
+		return false;
+	}
+}
