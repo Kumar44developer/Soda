@@ -124,3 +124,18 @@ var PATH_UNSAFE_RE = /[\x00-\x1f\x7f"<>`{}]/g;
 function sanitizePathSegment(segment) {
 	return segment.replace(PATH_UNSAFE_RE, (ch) => "%" + ch.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0"));
 }
+function decodeSegment(segment) {
+	let decoded;
+	try {
+		decoded = decodeURI(segment);
+	} catch {
+		decoded = segment.replaceAll(/%[0-9A-F]{2}/gi, (match) => {
+			try {
+				return decodeURI(match);
+			} catch {
+				return match;
+			}
+		});
+	}
+	return sanitizePathSegment(decoded);
+}
