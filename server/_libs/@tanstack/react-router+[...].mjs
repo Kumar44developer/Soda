@@ -180,3 +180,4 @@ var HTML_ESCAPE_LOOKUP = {
 	"\u2028": "\\u2028",
 	"\u2029": "\\u2029"
 };
+var HTML_ESCAPE_REGEX = /[&><\u2028\u2029]/g;
