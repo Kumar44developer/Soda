@@ -191,3 +191,8 @@ var HTML_ESCAPE_REGEX = /[&><\u2028\u2029]/g;
 function escapeHtml(str) {
 	return str.replace(HTML_ESCAPE_REGEX, (match) => HTML_ESCAPE_LOOKUP[match]);
 }
+function decodePath(path) {
+	if (!path) return {
+		path,
+		handledProtocolRelativeURL: false
+	};
