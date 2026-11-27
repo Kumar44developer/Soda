@@ -280,3 +280,10 @@ function createLRUCache(max) {
 		}
 		newest = entry;
 	};
+	return {
+		get(key) {
+			const entry = cache.get(key);
+			if (!entry) return void 0;
+			touch(entry);
+			return entry.value;
+		},
