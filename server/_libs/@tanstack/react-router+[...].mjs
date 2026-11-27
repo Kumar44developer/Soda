@@ -208,3 +208,9 @@ function decodePath(path) {
 		result += decodeSegment(path.slice(cursor, match.index)) + match[0];
 		cursor = re.lastIndex;
 	}
+	result = result + decodeSegment(cursor ? path.slice(cursor) : path);
+	let handledProtocolRelativeURL = false;
+	if (result.startsWith("//")) {
+		handledProtocolRelativeURL = true;
+		result = "/" + result.replace(/^\/+/, "");
+	}
