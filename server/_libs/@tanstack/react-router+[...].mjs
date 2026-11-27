@@ -242,3 +242,9 @@ function encodePathLikeUrl(path) {
 	if (!/\s|[^\u0000-\u007F]/.test(path)) return path;
 	return path.replace(/\s|[^\u0000-\u007F]/gu, encodeURIComponent);
 }
+function arraysEqual(a, b) {
+	if (a === b) return true;
+	if (a.length !== b.length) return false;
+	for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+	return true;
+}
