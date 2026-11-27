@@ -248,3 +248,8 @@ function arraysEqual(a, b) {
 	for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
 	return true;
 }
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/invariant.js
+function invariant() {
+	throw new Error("Invariant failed");
+}
