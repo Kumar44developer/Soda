@@ -269,3 +269,14 @@ function createLRUCache(max) {
 				entry.prev = newest;
 				newest.next = entry;
 			}
+		} else {
+			entry.prev.next = entry.next;
+			entry.next.prev = entry.prev;
+			entry.next = void 0;
+			if (newest) {
+				newest.next = entry;
+				entry.prev = newest;
+			}
+		}
+		newest = entry;
+	};
