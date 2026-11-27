@@ -204,3 +204,7 @@ function decodePath(path) {
 	let cursor = 0;
 	let result = "";
 	let match;
+	while (null !== (match = re.exec(path))) {
+		result += decodeSegment(path.slice(cursor, match.index)) + match[0];
+		cursor = re.lastIndex;
+	}
