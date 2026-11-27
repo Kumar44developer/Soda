@@ -233,3 +233,8 @@ function decodePath(path) {
 *
 * Used to generate proper href values for SSR without constructing URL objects.
 *
+* @example
+* encodePathLikeUrl('/path/file name.pdf') // '/path/file%20name.pdf'
+* encodePathLikeUrl('/path/日本語') // '/path/%E6%97%A5%E6%9C%AC%E8%AA%9E'
+* encodePathLikeUrl('/path/already%20encoded') // '/path/already%20encoded' (preserved)
+*/
