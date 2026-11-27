@@ -238,3 +238,7 @@ function decodePath(path) {
 * encodePathLikeUrl('/path/日本語') // '/path/%E6%97%A5%E6%9C%AC%E8%AA%9E'
 * encodePathLikeUrl('/path/already%20encoded') // '/path/already%20encoded' (preserved)
 */
+function encodePathLikeUrl(path) {
+	if (!/\s|[^\u0000-\u007F]/.test(path)) return path;
+	return path.replace(/\s|[^\u0000-\u007F]/gu, encodeURIComponent);
+}
