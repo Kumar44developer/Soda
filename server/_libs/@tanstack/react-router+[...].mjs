@@ -219,3 +219,17 @@ function decodePath(path) {
 		handledProtocolRelativeURL
 	};
 }
+/**
+* Encodes a path the same way `new URL()` would, but without the overhead of full URL parsing.
+*
+* This function encodes:
+* - Whitespace characters (spaces → %20, tabs → %09, etc.)
+* - Non-ASCII/Unicode characters (emojis, accented characters, etc.)
+*
+* It preserves:
+* - Already percent-encoded sequences (won't double-encode %2F, %25, etc.)
+* - ASCII special characters valid in URL paths (@, $, &, +, etc.)
+* - Forward slashes as path separators
+*
+* Used to generate proper href values for SSR without constructing URL objects.
+*
