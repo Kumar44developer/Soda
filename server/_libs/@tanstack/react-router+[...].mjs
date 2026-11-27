@@ -253,3 +253,19 @@ function arraysEqual(a, b) {
 function invariant() {
 	throw new Error("Invariant failed");
 }
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/lru-cache.js
+function createLRUCache(max) {
+	const cache = /* @__PURE__ */ new Map();
+	let oldest;
+	let newest;
+	const touch = (entry) => {
+		if (!entry.next) return;
+		if (!entry.prev) {
+			entry.next.prev = void 0;
+			oldest = entry.next;
+			entry.next = void 0;
+			if (newest) {
+				entry.prev = newest;
+				newest.next = entry;
+			}
