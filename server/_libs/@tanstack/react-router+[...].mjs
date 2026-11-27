@@ -214,3 +214,8 @@ function decodePath(path) {
 		handledProtocolRelativeURL = true;
 		result = "/" + result.replace(/^\/+/, "");
 	}
+	return {
+		path: result,
+		handledProtocolRelativeURL
+	};
+}
