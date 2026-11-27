@@ -200,3 +200,7 @@ function decodePath(path) {
 		path,
 		handledProtocolRelativeURL: false
 	};
+	const re = /%25|%5C/gi;
+	let cursor = 0;
+	let result = "";
+	let match;
