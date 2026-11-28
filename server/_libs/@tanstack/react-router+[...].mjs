@@ -371,3 +371,18 @@ function getOpenAndCloseBraces(part) {
 	if (braces) {
 		const [openBrace, closeBrace] = braces;
 		const firstChar = part.charCodeAt(openBrace + 1);
+		const firstChar = part.charCodeAt(openBrace + 1);
+		if (firstChar === 45) {
+			if (openBrace + 2 < part.length && part.charCodeAt(openBrace + 2) === 36) {
+				const paramStart = openBrace + 3;
+				const paramEnd = closeBrace;
+				if (paramStart < paramEnd) {
+					output[0] = 3;
+					output[1] = start + openBrace;
+					output[2] = start + paramStart;
+					output[3] = start + paramEnd;
+					output[4] = start + closeBrace + 1;
+					output[5] = end;
+					return output;
+				}
+			}
