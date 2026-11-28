@@ -398,3 +398,12 @@ function getOpenAndCloseBraces(part) {
 				output[5] = path.length;
 				return output;
 			}
+			output[0] = 1;
+			output[1] = start + openBrace;
+			output[2] = start + afterDollar;
+			output[3] = start + closeBrace;
+			output[4] = start + closeBrace + 1;
+			output[5] = end;
+			return output;
+		}
+	}
