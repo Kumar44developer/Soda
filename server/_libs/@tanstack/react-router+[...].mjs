@@ -313,3 +313,10 @@ function createLRUCache(max) {
 				cache.set(key, entry);
 			}
 		},
+		clear() {
+			cache.clear();
+			oldest = void 0;
+			newest = void 0;
+		}
+	};
+}
