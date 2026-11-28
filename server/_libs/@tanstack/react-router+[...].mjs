@@ -358,3 +358,12 @@ function getOpenAndCloseBraces(part) {
 		output[5] = total;
 		return output;
 	}
+	if (part.charCodeAt(0) === 36) {
+		output[0] = 1;
+		output[1] = start;
+		output[2] = start + 1;
+		output[3] = end;
+		output[4] = end;
+		output[5] = end;
+		return output;
+	}
