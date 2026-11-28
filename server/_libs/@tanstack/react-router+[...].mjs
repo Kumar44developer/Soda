@@ -367,3 +367,7 @@ function getOpenAndCloseBraces(part) {
 		output[5] = end;
 		return output;
 	}
+	const braces = getOpenAndCloseBraces(part);
+	if (braces) {
+		const [openBrace, closeBrace] = braces;
+		const firstChar = part.charCodeAt(openBrace + 1);
