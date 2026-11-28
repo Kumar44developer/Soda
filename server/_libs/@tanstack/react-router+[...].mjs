@@ -297,3 +297,8 @@ function createLRUCache(max) {
 				}
 				if (toDelete === newest) newest = void 0;
 			}
+			const existing = cache.get(key);
+			if (existing) {
+				existing.value = value;
+				touch(existing);
+			}
