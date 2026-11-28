@@ -389,3 +389,12 @@ function getOpenAndCloseBraces(part) {
 		} else if (firstChar === 36) {
 			const dollarPos = openBrace + 1;
 			const afterDollar = openBrace + 2;
+			if (afterDollar === closeBrace) {
+				output[0] = 2;
+				output[1] = start + openBrace;
+				output[2] = start + dollarPos;
+				output[3] = start + afterDollar;
+				output[4] = start + closeBrace + 1;
+				output[5] = path.length;
+				return output;
+			}
