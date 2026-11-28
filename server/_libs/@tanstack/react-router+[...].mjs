@@ -386,3 +386,6 @@ function getOpenAndCloseBraces(part) {
 					return output;
 				}
 			}
+		} else if (firstChar === 36) {
+			const dollarPos = openBrace + 1;
+			const afterDollar = openBrace + 2;
