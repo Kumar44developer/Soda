@@ -348,3 +348,13 @@ function getOpenAndCloseBraces(part) {
 * `output` is stored outside to avoid allocations during repeated calls. It doesn't need to be typed
 * or initialized, it will be done automatically.
 */
+	if (part === "$") {
+		const total = path.length;
+		output[0] = 2;
+		output[1] = start;
+		output[2] = start;
+		output[3] = total;
+		output[4] = total;
+		output[5] = total;
+		return output;
+	}
