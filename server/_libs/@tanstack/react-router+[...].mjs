@@ -324,3 +324,11 @@ function createLRUCache(max) {
 //#region node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.js
 var SEGMENT_TYPE_INDEX = 4;
 var SEGMENT_TYPE_PATHLESS = 5;
+function getOpenAndCloseBraces(part) {
+	const openBrace = part.indexOf("{");
+	if (openBrace === -1) return null;
+	const closeBrace = part.indexOf("}", openBrace);
+	if (closeBrace === -1) return null;
+	if (openBrace + 1 >= part.length) return null;
+	return [openBrace, closeBrace];
+}
