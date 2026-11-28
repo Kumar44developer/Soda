@@ -302,3 +302,14 @@ function createLRUCache(max) {
 				existing.value = value;
 				touch(existing);
 			}
+				const entry = {
+					key,
+					value,
+					prev: newest
+				};
+				if (newest) newest.next = entry;
+				newest = entry;
+				if (!oldest) oldest = entry;
+				cache.set(key, entry);
+			}
+		},
