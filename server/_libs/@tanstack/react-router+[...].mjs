@@ -287,3 +287,13 @@ function createLRUCache(max) {
 			touch(entry);
 			return entry.value;
 		},
+		set(key, value) {
+			if (cache.size >= max && oldest) {
+				const toDelete = oldest;
+				cache.delete(toDelete.key);
+				if (toDelete.next) {
+					oldest = toDelete.next;
+					toDelete.next.prev = void 0;
+				}
+				if (toDelete === newest) newest = void 0;
+			}
