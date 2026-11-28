@@ -407,3 +407,11 @@ function getOpenAndCloseBraces(part) {
 			return output;
 		}
 	}
+	output[0] = 0;
+	output[1] = start;
+	output[2] = start;
+	output[3] = end;
+	output[4] = end;
+	output[5] = end;
+	return output;
+}
