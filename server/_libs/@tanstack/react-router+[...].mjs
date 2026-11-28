@@ -322,3 +322,5 @@ function createLRUCache(max) {
 }
 //#endregion
 //#region node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.js
+var SEGMENT_TYPE_INDEX = 4;
+var SEGMENT_TYPE_PATHLESS = 5;
