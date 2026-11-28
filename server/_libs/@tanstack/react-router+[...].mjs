@@ -332,3 +332,19 @@ function getOpenAndCloseBraces(part) {
 	if (openBrace + 1 >= part.length) return null;
 	return [openBrace, closeBrace];
 }
+/**
+* Populates the `output` array with the parsed representation of the given `segment` string.
+*
+* Usage:
+* ```ts
+* let output
+* let cursor = 0
+* while (cursor < path.length) {
+*   output = parseSegment(path, cursor, output)
+*   const end = output[5]
+*   cursor = end + 1
+* ```
+*
+* `output` is stored outside to avoid allocations during repeated calls. It doesn't need to be typed
+* or initialized, it will be done automatically.
+*/
